@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+    //database
+    implementation 'com.h2database:h2:1.4.194'
+    testImplementation group: 'com.h2database', name: 'h2', version: '1.4.200'
+
+    implementation 'org.hibernate:hibernate-core:5.2.6.Final'
+    implementation('com.sun.xml.bind:jaxb-impl:2.3.4')
+//    implementation group: 'postgresql', name: 'postgresql', version: '9.1-901-1.jdbc4'
+
+}
+
+
+test {
+    useJUnitPlatform()
+    jvmArgs '--enable-preview'
+}
